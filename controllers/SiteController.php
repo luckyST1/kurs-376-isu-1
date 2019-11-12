@@ -149,9 +149,15 @@ class SiteController extends Controller
     public function actionCorrect()
     {
         $model = new CorrectQ();
-        return $this->render('correct', [
-            'model' => $model,
-        ]);
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                return $this->goHome();
+            }
+        }
+            return $this->render('correct', [
+                'model' => $model,
+                ]);
+
     }
 
     public function actionTests()
