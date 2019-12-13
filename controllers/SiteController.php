@@ -12,6 +12,8 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\TestCreate;
 use app\models\Tests;
+use app\models\TestCS;
+use app\models\TestSAsk;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -137,11 +139,68 @@ class SiteController extends Controller
         $model = new TestCreate();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
-                return $this->redirect('/web/index.php?r=site/correct');
+                return $this->redirect('/web/index.php?r=site/correctqq');
             }
 
         }
         return $this->render('test', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionTestcs()
+    {
+        $model = new \app\models\TestCS();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                return $this->redirect('/web/index.php?r=site/testask');
+            }
+        }
+        return $this->render('testcs', [
+            'model'=> $model,
+        ]);
+    }
+
+    public function actionTestask()
+    {
+        $model = new \app\models\TestSAsk();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                return $this->redirect('/web/index.php?r=site/testans');
+            }
+        }
+
+        return $this->render('testask', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionTestans()
+    {
+        $model = new \app\models\TestSAns();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                return $this->redirect('/web/index.php?r=site/testqans');
+
+            }
+        }
+
+        return $this->render('testans', [
+            'model' => $model,
+        ]);
+    }
+    public function actionCorrectqq()
+    {
+        $model = new \app\models\CorrectQ();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                return $this->redirect('/web/index.php?r=site/index');
+            }
+        }
+
+        return $this->render('correctqq', [
             'model' => $model,
         ]);
     }
@@ -151,7 +210,7 @@ class SiteController extends Controller
         $model = new CorrectQ();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
-                return $this->goHome();
+                return $this->redirect('/web/index.php?r=site/index');
             }
         }
             return $this->render('correct', [

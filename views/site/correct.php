@@ -35,7 +35,7 @@ $items = ArrayHelper::map($otvet, 'question', function($item1) { return $item1->
 
 
 $params = [
-    'prompt' => 'Заполните это поле, если оно является верным ответом'
+    'prompt' => 'Оставить пустым, если ответ не является верным'
 ];
 
 echo $form->field($model, 'correct_q')->dropDownList($items, $params);?>
@@ -47,7 +47,7 @@ $items = ArrayHelper::map($otvet, 'question', function($item2) { return $item2->
 
 
 $params = [
-'prompt' => 'Заполните это поле, если оно является верным ответом'
+'prompt' => 'Оставить пустым, если ответ не является верным'
 ];
 
 echo $form->field($model, 'correct_q2')->dropDownList($items, $params);?>
@@ -59,12 +59,12 @@ $items = ArrayHelper::map($otvet, 'question', function($item3) { return $item3->
 
 
 $params = [
-    'prompt' => 'Заполните это поле, если оно является верным ответом'
+    'prompt' => 'Оставить пустым, если ответ не является верным'
 ];
 
 echo $form->field($model, 'correct_q3')->dropDownList($items, $params);?>
 
-        <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('Продолжить', ['class' => 'btn btn-primary']) ?>
 <?
 ActiveForm::end();
 

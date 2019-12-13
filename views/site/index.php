@@ -11,7 +11,7 @@ $this->title = 'My Yii Application';
 
         <p class="lead">Создать тест в пару кликов.</p>
 
-        <p><a class="btn btn-lg btn-success" href="/web/index.php?r=site/test">Начнем!</a></p>
+        <p><a class="btn btn-lg btn-success" href="/web/index.php?r=site/testcs">Начнем!</a></p>
     </div>
 
    </div>
