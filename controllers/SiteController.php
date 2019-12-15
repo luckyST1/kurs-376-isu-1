@@ -14,6 +14,8 @@ use app\models\TestCreate;
 use app\models\Tests;
 use app\models\TestCS;
 use app\models\TestSAsk;
+use app\models\TestSAns;
+use app\models\TestSCorAnsw;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -190,6 +192,23 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionTestqans()
+    {
+        $model = new \app\models\TestSCorAnsw();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('testqans', [
+            'model' => $model,
+        ]);
+    }
+
     public function actionCorrectqq()
     {
         $model = new \app\models\CorrectQ();
