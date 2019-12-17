@@ -199,7 +199,8 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
-                // form inputs are valid, do something here
+                return $this->redirect('/web/index.php?r=site/index');
+
                 return;
             }
         }
