@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -16,7 +15,6 @@ use app\models\TestSAns;
 use app\models\TestSCorAnsw;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
-
 
 class SiteController extends Controller
 {
