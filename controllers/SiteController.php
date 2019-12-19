@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\CorrectQ;
+
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -10,8 +10,6 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\TestCreate;
-use app\models\Tests;
 use app\models\TestCS;
 use app\models\TestSAsk;
 use app\models\TestSAns;
@@ -136,19 +134,6 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionTest()
-    {
-        $model = new TestCreate();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
-                return $this->redirect('/web/index.php?r=site/correctqq');
-            }
-
-        }
-        return $this->render('test', [
-            'model' => $model,
-        ]);
-    }
 
     public function actionTestcs()
     {
@@ -210,40 +195,5 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionCorrectqq()
-    {
-        $model = new \app\models\CorrectQ();
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
-                return $this->redirect('/web/index.php?r=site/index');
-            }
-        }
-
-        return $this->render('correctqq', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionCorrect()
-    {
-        $model = new CorrectQ();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
-                return $this->redirect('/web/index.php?r=site/index');
-            }
-        }
-            return $this->render('correct', [
-                'model' => $model,
-                ]);
-
-    }
-
-    public function actionTests()
-    {
-        $model = new Tests();
-        return $this->render('tests', [
-            'model' => $model,
-        ]);
-    }
 }
